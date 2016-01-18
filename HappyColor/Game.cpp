@@ -1,6 +1,5 @@
 #include "Game.h"
 #include "PlayState.h"
-#include "GeneralParameters.h"
 
 Game* Game::instance = 0;
 
@@ -26,8 +25,8 @@ bool Game::init(const char * title, int xpos, int ypos, bool fullscreen)
 {
 	int flags = 0;
 	//store the game width and height
-	gamewidth = GeneralParameters::Instance()->Getgamewidth();
-	gameheight = GeneralParameters::Instance()->Getgameheight();
+	gamewidth = GeneralParameters::Instance()->Getxaxmax();
+	gameheight = GeneralParameters::Instance()->Getyaxmax();
 	//fullscrren is bool
 	if (fullscreen)
 	{

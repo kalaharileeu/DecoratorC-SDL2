@@ -10,6 +10,9 @@ set a contimuous while loop running at a constant pace, it
 forms the main clock for the game. Start point and end point
 While the Game instance running is true the 
 */
+
+
+
 Game* game = 0;
 ///variable to create the fixed frames per second
 const int FPS = 60; //Frames per second

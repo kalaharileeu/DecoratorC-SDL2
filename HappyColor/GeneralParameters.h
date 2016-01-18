@@ -12,24 +12,37 @@ public:
 		return instance;
 	}
 
-	int Getgamewidth()
+	int Getxaxmax()
 	{
 		return gamewidth;
 	}
 
-	int Getgameheight()
+	int Getyaxmax()
 	{
 		return gameheight;
 	}
 
+	int Getxaxmin()
+	{
+		return 0;
+	}
+
+	int Getyaxmin()
+	{
+		return 0;
+	}
+
 private:
 	GeneralParameters() {};
-	const int gamewidth = 1000;
-	const int gameheight = 1000;
+	int gamewidth = 1000;
+	int gameheight = 1000;
 
 	// singleton instance
 	static GeneralParameters* instance;
 };
 
+typedef GeneralParameters  GP;
 //GeneralParameters* instance = 0;
+
+
 

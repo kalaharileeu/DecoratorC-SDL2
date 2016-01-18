@@ -16,7 +16,7 @@ public:
 		//this can all be done with dependency injection
 		//movespeed = ms;
 		velocity.setX(-movespeed);
-		velocity.setY(0);
+		velocity.setY(movespeed * m);
 		shieldedintruder = 0;
 	}
 
@@ -31,7 +31,6 @@ public:
 
 	void update()
 	{
-		velocity.setY(movespeed);
 		MovingObject::update();
 		//Wrapped object update
 		if (shieldedintruder != 0)

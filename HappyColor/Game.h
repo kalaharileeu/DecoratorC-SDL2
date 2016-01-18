@@ -7,6 +7,7 @@
 #include "TextureManager.h"
 #include "PlayState.h"
 #include "InputHandler.h"
+#include "GeneralParameters.h"
 
 class Game
 {

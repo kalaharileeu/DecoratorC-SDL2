@@ -19,6 +19,6 @@ protected:
 	from derived class*/
 	MovingObject(int ms, Vector2D pos, int w, int h, std::string id, int nf);
 	int movespeed;
-
+	int m; //movement gradient
 };
 

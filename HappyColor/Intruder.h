@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "MovingObject.h"
+#include "GeneralParameters.h"
+
 class Intruder : public MovingObject
 {
 public:
@@ -11,22 +13,13 @@ public:
 		//this can all be done with dependency injection
 		//movespeed = ms;
 		velocity.setX(-movespeed);
-		velocity.setY(0);
+		velocity.setY(movespeed * m);
 	}
 
 	~Intruder() { std::cout << "Intruder detroyed"; }
 
 	void update()
 	{
-		//if (position.getY() >= maxheigt)
-		//{
-		//	velocity.setY(-movespeed);
-		//}
-		//else if (position.getY() <= minheight)
-		//{
-			velocity.setY(movespeed);
-		//}
-
 		MovingObject::update();
 	}
 
