@@ -38,6 +38,7 @@ public:
 	//virtual void collision() = 0;
 	// get the type of the object
 	virtual std::string type() = 0;
+	virtual Vector2D Getposition() = 0;
 
 protected:
 	// constructor with default initialisation list

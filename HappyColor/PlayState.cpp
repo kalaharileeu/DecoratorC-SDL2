@@ -35,9 +35,10 @@ void PlayState::update()
 		for (int i = 0; i < playobjects.size(); i++)
 		{
 			if(playobjects[i]->type() == "shield")
+				//check if the is a wrapped instanve in the shield decorator
 				if (!((dynamic_cast<Shield*>(playobjects[i]))->checkifwrappedinstance()))
 				{
-					dynamic_cast<Shield*>(playobjects[i])->loadwrapped(new Intruder(1, Vector2D(200, 200), 38, 36, "intruder", 1));
+					dynamic_cast<Shield*>(playobjects[i])->loadwrapped(new Intruder(1, Vector2D(200, 200), 60, 60, "intruder", 1));
 				}
 			playobjects[i]->update();
 		}
@@ -68,7 +69,7 @@ bool PlayState::onEnter()
 		"intruder", TheGame::Instance()->getdrawer());//load intruder
 	TextureManager::Instance()->load("Content/shield.png", "shield", TheGame::Instance()->getdrawer());//load shield
 	//load some play objects manually into PlayState
-	playobjects.push_back(new Intruder(1, Vector2D(150, 150), 38, 36, "intruder", 1));
+	playobjects.push_back(new Intruder(1, Vector2D(150, 150), 60, 60, "intruder", 1));
 	playobjects.push_back(new Shield(1, Vector2D(200, 200), 60, 60, "shield", 1));
 	//if the level did not load correctly set the id to 0/null
 	std::cout << "entering PlayState\n";

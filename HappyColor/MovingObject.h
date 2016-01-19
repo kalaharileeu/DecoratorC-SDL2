@@ -13,12 +13,13 @@ public:
 	virtual void update();
 	//virtual void clean() {}
 	virtual std::string type() { return textureid; }
+	virtual Vector2D Getposition() { return Vector2D(position.getX(), position.getY()); };
 
 protected:
 	/*constructor is protected so that it can be accessed
 	from derived class*/
 	MovingObject(int ms, Vector2D pos, int w, int h, std::string id, int nf);
 	int movespeed;
-	int m; //movement gradient
+	int m; //movement gradient, for liear angled movement
 };
 

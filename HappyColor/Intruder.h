@@ -7,11 +7,10 @@ class Intruder : public MovingObject
 {
 public:
 	/*movespeed, position, width, height, textureid, numframes;*/
-	Intruder(int ms, Vector2D pos, int w, int h, std::string id, int nf) 
+	Intruder(int ms, Vector2D pos, int w, int h, std::string id, int nf)
 		: MovingObject(ms, pos, w, h, id, nf)
 	{
 		//this can all be done with dependency injection
-		//movespeed = ms;
 		velocity.setX(-movespeed);
 		velocity.setY(movespeed * m);
 	}
@@ -32,7 +31,10 @@ public:
 	{
 		return MovingObject::type();
 	}
-
-	//void load() {};
+	//return the position of the object.(Some object feedback)
+	Vector2D Getposition()
+	{
+		return MovingObject::Getposition();
+	}
 };
 

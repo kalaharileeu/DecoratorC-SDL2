@@ -2,7 +2,6 @@
 #include<iostream>
 #include "Game.h"
 #include "GeneralParameters.h"
-
 /*
 The game starts here here
 The main set the the pace for the program, its purpose is to
@@ -10,9 +9,6 @@ set a contimuous while loop running at a constant pace, it
 forms the main clock for the game. Start point and end point
 While the Game instance running is true the 
 */
-
-
-
 Game* game = 0;
 ///variable to create the fixed frames per second
 const int FPS = 60; //Frames per second
