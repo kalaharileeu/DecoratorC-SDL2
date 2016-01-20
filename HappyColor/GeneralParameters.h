@@ -11,7 +11,7 @@ public:
 
 		return instance;
 	}
-
+//********Get the boundaries of the game********
 	int Getxaxmax()
 	{
 		return gamewidth;
@@ -31,7 +31,7 @@ public:
 	{
 		return 0;
 	}
-
+//***********Done getting boundaries**********
 private:
 	GeneralParameters() {};
 	int gamewidth = 1000;

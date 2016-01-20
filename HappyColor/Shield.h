@@ -51,7 +51,7 @@ public:
 
 	std::string type()
 	{
-		return MovingObject::type();
+		return "Shield";
 	}
 
 	void loadwrapped(GameObject* wrapme_gameobject)

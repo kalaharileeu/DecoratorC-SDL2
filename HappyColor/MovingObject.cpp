@@ -9,7 +9,7 @@ MovingObject::MovingObject(int ms, Vector2D pos, int w, int h, std::string id, i
 {    // get position
 	movespeed = ms;
 	position = Vector2D(pos.getX(), pos.getY());
-	// get drawing variables
+	// get image variables
 	width = w;
 	height = h;
 	textureid = id;
@@ -49,4 +49,9 @@ void MovingObject::update()
 
 	position += velocity;
 	currentframe = int(((SDL_GetTicks() / (1000 / 3)) % numframes));
+}
+
+void MovingObject::collision()
+{
+	boolcollision = true;
 }

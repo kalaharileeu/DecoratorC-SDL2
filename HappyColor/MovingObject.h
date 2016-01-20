@@ -13,7 +13,9 @@ public:
 	virtual void update();
 	//virtual void clean() {}
 	virtual std::string type() { return textureid; }
-	virtual Vector2D Getposition() { return Vector2D(position.getX(), position.getY()); };
+	virtual Vector2D Getposition() 
+	{ return Vector2D(position.getX(), position.getY()); };
+	virtual void collision();
 
 protected:
 	/*constructor is protected so that it can be accessed

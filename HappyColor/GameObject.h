@@ -35,19 +35,23 @@ public:
 	// remove anything that needs to be deleted
 	//virtual void clean() = 0;
 	// object has collided, handle accordingly
-	//virtual void collision() = 0;
+	virtual void collision() = 0;
 	// get the type of the object
 	virtual std::string type() = 0;
+	//*********getters/setters**********
 	virtual Vector2D Getposition() = 0;
+	//need the image width/height for collision
+	int Getwidth() { return width; }
+	int Getheight() { return height; }
+	bool Getcollision() { return boolcollision; }
 
 protected:
 	// constructor with default initialisation list
 	//only derived classes cna ge to the protected members
 	GameObject() : position(0, 0), velocity(0, 0), acceleration(0, 0),
-		width(0), height(0), currentrow(0),	currentframe(0), boolupdating(false),
-		booldead(false), booldying(false), angle(0), alpha(255)
+		width(0), height(0), currentrow(0),	currentframe(0), boolcollision(false),
+		angle(0), alpha(255)
 	{}
-
 	// movement variables
 	Vector2D position;
 	Vector2D velocity;
@@ -61,9 +65,8 @@ protected:
 	int numframes;
 	std::string textureid;
 	// common boolean variables
-	bool boolupdating;
-	bool booldead;
-	bool booldying;
+	//bool boolupdating;
+	bool boolcollision;
 	// rotation
 	double angle;
 	// blending

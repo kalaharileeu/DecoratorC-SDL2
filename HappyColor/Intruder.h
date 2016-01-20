@@ -29,7 +29,7 @@ public:
 
 	std::string type()
 	{
-		return MovingObject::type();
+		return "Intruder";
 	}
 	//return the position of the object.(Some object feedback)
 	Vector2D Getposition()
