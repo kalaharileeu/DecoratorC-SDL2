@@ -67,9 +67,6 @@ public:
 		//The Gameobject reference are revceived and
 		//can be "decorated" or "wrapped"
 		shieldedintruder = wrapme_gameobject;
-		//sets the position of the wrapper in perspectif to the wrapped
-		//position.setX((shieldedintruder->Getposition()).getX());
-		//position.setY((shieldedintruder->Getposition()).getY());
 	}
 
 	bool checkifwrappedinstance()
