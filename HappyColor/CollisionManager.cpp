@@ -1,18 +1,21 @@
 #include "CollisionManager.h"
 #include "Shield.h"
+#include <iostream>
 
 
 void CollisionManager::checkWrapperWrappedCollision(const std::vector<GameObject*> &objects)
 {
 	//pointer used to point at "intruders"
 	GameObject* pointerobjectintruder;
+	GameObject* pointerobjectshield;
+	SDL_Rect* rectshield = new SDL_Rect();
+	SDL_Rect* rectsintruder = new SDL_Rect();
 	for (int i = 0; i < objects.size(); i++)
 	{
 		//pointer used to point at "Shield"
-		GameObject* pointerobjectshield = objects[i];
+		pointerobjectshield = objects[i];
 		//create two collsion rectangles
-		SDL_Rect* rectshield = new SDL_Rect();
-		SDL_Rect* rectsintruder = new SDL_Rect();
+
 		//perform search for Shield gameobjects
 		if (pointerobjectshield->type() == std::string("Shield") 
 			&& !pointerobjectshield->Getcollision())
@@ -39,13 +42,13 @@ void CollisionManager::checkWrapperWrappedCollision(const std::vector<GameObject
 					if (RectRect(rectsintruder, rectshield))
 					{
 						//If it already collided then skip it
-						if (!pointerobjectintruder->Getcollision()
-							&& !pointerobjectshield->Getcollision())
+						if (!pointerobjectintruder->Getcollision() && !pointerobjectshield->Getcollision())
 						{
 							pointerobjectintruder->collision();
 							pointerobjectshield->collision();
 							//upcast to shield to use shield specific functions
 							dynamic_cast<Shield*>(pointerobjectshield)->loadwrapped(pointerobjectintruder);
+							std::cout << "collision" << std::endl;
 							//below hoe to load a brand new gameobject into the wrapper
 							//dynamic_cast<Shield*>(playobjects[i])->
 							//	loadwrapped(new Intruder(1, Vector2D(200, 200), 60, 60, "intruder", 1));
@@ -54,7 +57,7 @@ void CollisionManager::checkWrapperWrappedCollision(const std::vector<GameObject
 				}
 			}
 		}
-		delete rectsintruder;
-		delete rectshield;
 	}
+	delete rectshield;
+	delete rectsintruder;
 }

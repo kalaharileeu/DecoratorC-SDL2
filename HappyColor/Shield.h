@@ -31,12 +31,20 @@ public:
 
 	void update()
 	{
-		MovingObject::update();
+		//MovingObject::update();
 		//Wrapped object update
 		if (shieldedintruder != 0)
 		{
 			shieldedintruder->update();
+			shieldedintruder->update();
+			position.setX((shieldedintruder->Getposition()).getX());
+			position.setY((shieldedintruder->Getposition()).getY());
 		}
+		else
+		{
+			MovingObject::update();
+		}
+
 	}
 
 	void draw()
@@ -60,8 +68,8 @@ public:
 		//can be "decorated" or "wrapped"
 		shieldedintruder = wrapme_gameobject;
 		//sets the position of the wrapper in perspectif to the wrapped
-		position.setX((shieldedintruder->Getposition()).getX());
-		position.setY((shieldedintruder->Getposition()).getY());
+		//position.setX((shieldedintruder->Getposition()).getX());
+		//position.setY((shieldedintruder->Getposition()).getY());
 	}
 
 	bool checkifwrappedinstance()

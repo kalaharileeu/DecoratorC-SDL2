@@ -2,6 +2,7 @@
 //BulletHandler, InputManager, playstate also draw the lives in used
 #pragma once
 #include "GameState.h"
+#include "CollisionManager.h"
 
 class GameObject;
 class SDLGameObject;
@@ -24,5 +25,6 @@ private:
 	//const: has to initialised outside of the class, done it in .cpp file 
 	static const std::string playid;
 	std::vector<GameObject*> playobjects;
+	CollisionManager CM;
 };
 

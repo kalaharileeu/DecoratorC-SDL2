@@ -8,7 +8,7 @@ inherit from GameState, public
 #include "Shield.h"
 #include "Vector2D.h"
 #include <stdlib.h>
-#include "CollisionManager.h"
+
 
 const std::string PlayState::playid = "PLAY";
 
@@ -23,6 +23,7 @@ PlayState::~PlayState()
 		}
 		playobjects.clear();
 	}
+	CM = CollisionManager();
 }//delete the level pointer
 
 /*
@@ -36,6 +37,7 @@ void PlayState::update()
 	{
 		for (int i = 0; i < playobjects.size(); i++)
 		{
+			CM.checkWrapperWrappedCollision(playobjects);
 			if (playobjects[i] != NULL)
 			{
 				if (playobjects[i]->type() == "Intruder")
