@@ -10,7 +10,8 @@ public:
 	Intruder(int ms, Vector2D pos, int w, int h, std::string id, int nf)
 		: MovingObject(ms, pos, w, h, id, nf)
 	{
-		//this can all be done with dependency injection
+		//the parameter in the constructor can be more elegantly 
+		//replaced with dependency injection
 		velocity.setX(-movespeed);
 		velocity.setY(movespeed * m);
 	}

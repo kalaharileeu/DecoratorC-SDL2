@@ -8,7 +8,8 @@ inherit from GameState, public
 #include "Shield.h"
 #include "Vector2D.h"
 #include <stdlib.h>
-
+#include "TheTime.h"
+#include <iostream>
 
 const std::string PlayState::playid = "PLAY";
 
@@ -35,15 +36,20 @@ void PlayState::update()
 {
 	if (boolloadingcomplete && !boolexiting)
 	{
+		CM.checkWrapperWrappedCollision(playobjects);
 		for (int i = 0; i < playobjects.size(); i++)
 		{
-			CM.checkWrapperWrappedCollision(playobjects);
+			//Check for any collisions
+			//CM.checkWrapperWrappedCollision(playobjects);
 			if (playobjects[i] != NULL)
 			{
 				if (playobjects[i]->type() == "Intruder")
 				{
+					//If a intruder collided with a shield, collision will be true
 					if (playobjects[i]->Getcollision())
 					{
+						//Set the intruder pointer to NULL, becasue it now wrapped
+						//by a shield
 						playobjects[i] = NULL;
 						playobjects.erase(playobjects.begin() + i);
 					}
@@ -51,6 +57,7 @@ void PlayState::update()
 				playobjects[i]->update();
 			}
 		}
+		CM.checkgeneralcollision(playobjects);
 	}
 }
 
@@ -72,26 +79,23 @@ void PlayState::draw()
 bool PlayState::onEnter()
 {
 	//Manualy load some content here like level etc.
-
 	//Register the image with the TextureManager
 	TextureManager::Instance()->load("Content/enemy2.png","intruder", TheGame::Instance()->getdrawer());//load intruder
 	TextureManager::Instance()->load("Content/shield.png", "shield", TheGame::Instance()->getdrawer());//load shield
 	//load some play objects manually into PlayState
-	playobjects.push_back(new Intruder(1, Vector2D(150, 150), 60, 60, "intruder", 1));
-	playobjects.push_back(new Shield(1, Vector2D(200, 200), 60, 60, "shield", 1));
-	//if the level did not load correctly set the id to 0/null
-	for (int i = 0; i < 10; i++)
+	//playobjects.push_back(new Intruder(1, Vector2D(150, 150), 60, 60, "intruder", 1));
+	//playobjects.push_back(new Shield(1, Vector2D(200, 200), 60, 60, "shield", 1));
+	//add 10 intruders to the gameobject list
+	for (int i = 0; i < 20; i++)
 	{
-		playobjects.push_back(new Intruder
-			(1, Vector2D(1000/ (rand() % 100 + 1), 1000 / (rand() % 10 + 1)), 60, 60, "intruder", 1));
+		playobjects.push_back(new Intruder(1, Vector2D( (470 / 10) * i, (470 / 10) * i), 60, 60, "intruder", 1));
 	}
-	for (int i = 0; i < 10; i++)
+	//add 10 shields to the gameobject list
+	for (int i = 0; i < 20; i++)
 	{
-		playobjects.push_back(new Shield
-			(1, Vector2D(1000 / (rand() % 10 + 1), 1000 / (rand() % 20 + 1)), 60, 60, "shield", 1));
+		playobjects.push_back(new Shield(1, Vector2D((470 / 10) + 500, 470 / (470 / 10) + 500), 60, 60, "shield", 1));
+		Getsometicks();
 	}
-
-	std::cout << "entering PlayState\n";
 	boolloadingcomplete = true;
 	return true;
 }

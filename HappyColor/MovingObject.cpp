@@ -28,20 +28,25 @@ void MovingObject::draw()
 // apply velocity to current position
 void MovingObject::update()
 {
+	//GP is the gameparameters
 	//Check the Y boundaries
-	if (position.getY() >= GP::Instance()->Getyaxmax())
+	//Bottom side
+	if (position.getY() >= GP::Instance()->Getyaxmax() - height)
 	{
 		velocity.setY(-movespeed);
 	}
+	//Top side, use the image height as well
 	else if (position.getY() <= GP::Instance()->Getyaxmin())
 	{
 		velocity.setY(movespeed);
 	}
 	//Check the X boundaries
-	if (position.getX() >= GP::Instance()->Getxaxmax())
+	//Right screen side collision, use the image with
+	if (position.getX() >= GP::Instance()->Getxaxmax() - width)
 	{
 		velocity.setX(-movespeed);
 	}
+	//Left screen side collision, the left side 
 	else if (position.getX() <= GP::Instance()->Getxaxmin())
 	{
 		velocity.setX(movespeed);

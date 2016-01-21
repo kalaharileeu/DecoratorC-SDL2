@@ -8,5 +8,6 @@ class CollisionManager
 {
 public:
 	void checkWrapperWrappedCollision(const std::vector<GameObject*> &objects);
+	void checkgeneralcollision(const std::vector<GameObject*> &objects);
 };
 

@@ -44,7 +44,6 @@ public:
 		{
 			MovingObject::update();
 		}
-
 	}
 
 	void draw()
@@ -67,6 +66,12 @@ public:
 		//The Gameobject reference are revceived and
 		//can be "decorated" or "wrapped"
 		shieldedintruder = wrapme_gameobject;
+	}
+
+	//after circles collided they have to bounce from each other
+	void bounce(Vector2D v)
+	{
+
 	}
 
 	bool checkifwrappedinstance()
