@@ -25,25 +25,21 @@ static Vector2D RectRectbounce(SDL_Rect* rect1, SDL_Rect* rect2)
 	if ((rect1->y + rect1->h) >= rect2->y)
 	{ 
 		bouncevect.setY(1);
-		return bouncevect;
 	}
 	// if the top of rect1 is more than the bottom of rect2 = collision
 	else if (rect1->y <= (rect2->y + rect2->h))
 	{
 		bouncevect.setY(-1);
-		return bouncevect;
 	}
 	// if the right of rect1 is more than the left of rect2 - collision
 	if ((rect1->x + rect1->w) <= rect2->x)
 	{
-		bouncevect.setX(1);
-		return bouncevect;
+		bouncevect.setX(-1);
 	}
 	// if the left of rect1 is less than the right of rect2 - collision
 	else if (rect1->x <= (rect2->x + rect2->w))
 	{ 
-		bouncevect.setX(-1);
-		return bouncevect;
+		bouncevect.setX(1);
 	}
 	return bouncevect;
 }

@@ -97,6 +97,7 @@ void CollisionManager::checkgeneralcollision(const std::vector<GameObject*> &obj
 					{
 						if (RectRect(rectshield, rectshield2))
 						{
+							bouncevec = RectRectbounce(rectshield, rectshield2);
 							//upcast to intruder
 							dynamic_cast<Intruder*>(pointerobjectshield)->bounce(bouncevec);
 							bouncevec = RectRectbounce(rectshield, rectshield2);

@@ -42,14 +42,12 @@ public:
 	{
 		if (v.getY() != 0)
 		{
-			int y = velocity.getY() * -1;
-			velocity.setY(y);
+			velocity.setY(v.getY());
 		}
 
 		if (v.getX() != 0)
 		{
-			int x = velocity.getX() * -1;
-			velocity.setY(x);
+			velocity.setX(v.getX());
 		}
 
 	}
