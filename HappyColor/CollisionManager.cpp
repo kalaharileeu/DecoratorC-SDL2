@@ -81,7 +81,7 @@ void CollisionManager::checkgeneralcollision(const std::vector<GameObject*> &obj
 			rectshield->w = pointerobjectshield->Getwidth();
 			rectshield->h = pointerobjectshield->Getheight();
 			//Search th
-			for (int j = 0; j < objects.size(); j++)
+			for (int j = i + 1; j < objects.size(); j++)
 			{
 				pointerobjectshield2 = objects[j];
 				//if it  is a intruder and it has not collided yet
@@ -93,15 +93,19 @@ void CollisionManager::checkgeneralcollision(const std::vector<GameObject*> &obj
 					rectshield2->w = pointerobjectshield2->Getwidth();
 					rectshield2->h = pointerobjectshield2->Getheight();
 					//Check for collision
-					bouncevec = RectRectbounce(rectshield, rectshield2);
+					if(j != i)
 					{
-						//pointerobjectshield->bounce(bouncevec);
-						int x = bouncevec.getX() * (-1);
-						int y = bouncevec.getY() * (-1);
-						bouncevec.setX(x);
-						bouncevec.setY(y);
-						//pointerobjectshield2->bounce(bouncevec);
-						//std::cout << "collision shields" << std::endl;
+						if (RectRect(rectshield, rectshield2))
+						{
+							//upcast to intruder
+							dynamic_cast<Intruder*>(pointerobjectshield)->bounce(bouncevec);
+							bouncevec = RectRectbounce(rectshield, rectshield2);
+							int x = bouncevec.getX() * (-1);
+							int y = bouncevec.getY() * (-1);
+							bouncevec.setX(x);
+							bouncevec.setY(y);
+							dynamic_cast<Intruder*>(pointerobjectshield2)->bounce(bouncevec);
+						}
 					}
 				}
 			}
