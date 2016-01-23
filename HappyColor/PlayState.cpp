@@ -88,12 +88,13 @@ bool PlayState::onEnter()
 	//add 10 intruders to the gameobject list
 	for (int i = 0; i < 10; i++)
 	{
-		playobjects.push_back(new Intruder(1, Vector2D((80 * i) + 10, (80 * i) + 10), 60, 60, "intruder", 1));
+		playobjects.push_back(new Intruder(2, Vector2D((80 * i) + 10, (80 * i) + 10), 60, 60, "intruder", 1));
 	}
+
 	//add 10 shields to the gameobject list
 	for (int i = 0; i < 10; i++)
 	{
-		playobjects.push_back(new Shield(1, Vector2D(900, 900), 60, 60, "shield", 1));
+		playobjects.push_back(new Shield(1, Vector2D(80, 900), 60, 60, "shield", 1));
 	}
 	boolloadingcomplete = true;
 	return true;

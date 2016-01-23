@@ -35,7 +35,7 @@ public:
 private:
 	GeneralParameters() {};
 	int gamewidth = 1000;
-	int gameheight = 1000;
+	int gameheight = 990;
 
 	// singleton instance
 	static GeneralParameters* instance;
