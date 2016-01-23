@@ -86,15 +86,14 @@ bool PlayState::onEnter()
 	//playobjects.push_back(new Intruder(1, Vector2D(150, 150), 60, 60, "intruder", 1));
 	//playobjects.push_back(new Shield(1, Vector2D(200, 200), 60, 60, "shield", 1));
 	//add 10 intruders to the gameobject list
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		playobjects.push_back(new Intruder(1, Vector2D( (470 / 10) * i, (470 / 10) * i), 60, 60, "intruder", 1));
+		playobjects.push_back(new Intruder(1, Vector2D((80 * i) + 10, (80 * i) + 10), 60, 60, "intruder", 1));
 	}
 	//add 10 shields to the gameobject list
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < 10; i++)
 	{
-		playobjects.push_back(new Shield(1, Vector2D((470 / 10) + 500, 470 / (470 / 10) + 500), 60, 60, "shield", 1));
-		Getsometicks();
+		playobjects.push_back(new Shield(1, Vector2D(900, 900), 60, 60, "shield", 1));
 	}
 	boolloadingcomplete = true;
 	return true;
