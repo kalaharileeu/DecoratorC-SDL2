@@ -37,5 +37,21 @@ public:
 	{
 		return MovingObject::Getposition();
 	}
+
+	void bounce(Vector2D v)
+	{
+		if (v.getY() != 0)
+		{
+			int y = velocity.getY() * -1;
+			velocity.setY(y);
+		}
+
+		if (v.getX() != 0)
+		{
+			int x = velocity.getX() * -1;
+			velocity.setY(x);
+		}
+
+	}
 };
 
