@@ -6,7 +6,6 @@ ABSTRACT base classes
 access through the base class pointer
 -ensure correct implementation by making GameObject a abstract base class
 -abstract base class cannot be initialized itself
--reusability as: object we derive from GameObject will work in program.
 (abstract base class is a class that contains at least one pure virtual function. A
 pure virtual function is a function that has no definition and must be implemented in
 any derived classes. We can make a function pure virtual by suffixing it with =0.
@@ -17,7 +16,6 @@ Derived classes should model the "is a" relationship
 #include "Vector2D.h"
 #include <memory>//for unique_ptr
 #include <string>
-#include "LoaderParams.h"
 
 class GameObject
 {
